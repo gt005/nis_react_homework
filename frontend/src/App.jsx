@@ -5,9 +5,11 @@ import React, {useState, useEffect} from "react";
 import Header from "./components/Header";
 import ProfuctsPage from "./ProductsPage";
 import MainPage from "./MainPage";
-import UserSignUp from "./UserSignUp";
 import UserLogin from "./UserLogin";
+import UserLogout from "./UserLogout";
 import {getCookie} from './components/getCookie';
+
+import "./App.css";
 
 import {
     BrowserRouter,
@@ -32,24 +34,24 @@ function App() {
                 <Header isAuth={isLoggedIn} />
                 <Routes>
                     <Route
-                        path="/product-list"
+                         path="/product-list"
                         exact
                         element={<ProfuctsPage page={1}/>}/>
 
                     <Route
                         path="/"
                         exact
-                        element={<MainPage/>}/>
-
-                    <Route
-                        path="/sign-up"
-                        exact
-                        element={<UserSignUp/>}/>
+                        element={<MainPage isAuth={isLoggedIn} />}/>
 
                     <Route
                         path="/login"
                         exact
                         element={<UserLogin isAuth={isLoggedIn} />}/>
+
+                    <Route
+                        path="/logout"
+                        exact
+                        element={<UserLogout isAuth={isLoggedIn} />}/>
                 </Routes>
             </div>
         </BrowserRouter>
