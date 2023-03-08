@@ -2,21 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0050bb7a-fc3c-4932-9ea8-bea767fbd303" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/MainPage.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/UserLogout.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/api_project/api_project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api_project/api_project/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/api_project/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api_project/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/api_project/main/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api_project/main/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/api_project/main/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api_project/main/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/api_project/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api_project/main/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/MainPage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/ProductsPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/ProductsPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/UserLogin.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/UserLogin.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/UserSignUp.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report.md" beforeDir="false" afterPath="$PROJECT_DIR$/report.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +91,7 @@
       <workItem from="1678003741801" duration="244000" />
       <workItem from="1678003989372" duration="22000" />
       <workItem from="1678004014518" duration="7205000" />
-      <workItem from="1678014608732" duration="35622000" />
+      <workItem from="1678014608732" duration="38457000" />
     </task>
     <servers />
   </component>

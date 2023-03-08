@@ -2,6 +2,15 @@
 
 Хамид Карим
 
+Сделаны все пункты задания.
+
+---
+Для запуска всего проекта, в корневой папке достаточно прописать docker-compose up.
+Frontend будет доступен по 
+```shell
+http://localhost:3000/
+```
+---
 В качестве backend использовался django rest framework и sqlite3.
 
 Для начала, создам проект frontend react.
@@ -38,42 +47,41 @@ INSTALLED_APPS = [
 ]
 ```
 
-Буду использовать bootstrap 5 для стилей. Установим его в файле App.css
-```
-@import 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css';
-```
-
 Далее, создал модель продуктов в файле models.py в api_project/main.
 Сделал миграции
 ```shell
 python3 manage.py makemigrations
 python3 manage.py migrate
 ```
-Создал суперпользователя
+Создал суперпользователя 
 ```shell
 python3 manage.py createsuperuser
 ```
+Для тестирования приложения, данные от пользователя:
+```
+username: karimhamid
+password: 123
+```
 
-karimhamid \
-123
-
-Далее, нужно заполнить бд
+Далее, нужно заполнить бд случайными данными
 ```shell
 pip3 install django-seed
 python3 manage.py seed main --number=132
 ```
 
-Далее, написал hook в файле ProductsPage для загрузки данных по API с сервера и сделал кнопку "загрузить еще" во frontend. Также, добавлено сообщение об ошибке в случае ошибки подключения
+Далее, написал hook в файле ProductsPage для загрузки данных по API с сервера и сделал кнопку "загрузить еще" во frontend. Также, добавлено сообщение об ошибке в случае ошибки подключения.
 
 В django добавляю api для авторизации по путям
 ```shell
-/api/auth/login
-/api/auth/sign-up
-/api/auth/logout
+/api/token/login/
+/api/token/logout
 ```
 Написал функцию CSRFToken для получения csrf токена с сервера для страниц, использующих post запросы.
 
-Для установки cookie использую
+Для установки cookie в react использую
 ```shell
 npm install react-cookie
 ```
+Это нужно чтобы установить токен, полученый при авторизации от сервера.
+
+Добавил стилей и добавил спиннер загрузки элементов. Элементы загружаются около 2-3 секунд(специально установлен timeout для наглядности). В бд 25 записей продуктов, поэтому можно листнуть два раза на странице продуктов.
