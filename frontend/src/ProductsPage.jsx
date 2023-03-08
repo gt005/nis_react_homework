@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import {getCookie} from './components/getCookie'
 
 const API_URL = "http://localhost:8000/api/products"
 
@@ -12,19 +13,27 @@ function useServerGoods() {
     }
 
     const getProducts = (params) => {
-        fetch(API_URL + `?page=${params.page}`)
+        fetch(
+            API_URL + `?page=${params.page}`, {
+                headers: {
+                    'Authorization': 'Token ' + getCookie('auth_token')
+                }
+            }
+        )
             .then((response) => {
                 return response.json();
             })
             .then((data) => {
-                if (data) {
+                if (data.products) {
                     changeItemList(data.products);
                     setNextPage(data.nextPage);
                 } else {
-                    setErrorString(data.error);
+                    setErrorString("Ошибка соединения");
                 }
             })
-            .catch(() => setErrorString("Ошибка соединения"));
+            .catch(() => {
+                setErrorString("Ошибка соединения")
+            });
     };
 
     return [items, nextPage, getProducts, errorString];
@@ -42,7 +51,9 @@ export default function ProductsPage({page}) {
             {items.map(el => (
                 <div key={el.id}>{el.name}</div>
             ))}
-            {(nextPage != -1) && (<button onClick={() => getProducts({page: nextPage})}>Загрузить ещё</button>)}
+            {(nextPage != -1) && (
+                <button onClick={() => getProducts({page: nextPage})}>Загрузить
+                    ещё</button>)}
             {(nextPage == -1) && (<span>Выведены все записи</span>)}
             <div color="red">{errorString}</div>
         </div>

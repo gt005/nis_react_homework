@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import {getCookie} from './getCookie';
 
 const API_URL = "http://localhost:8000/api/auth"
 
 export default function CSRFToken() {
     const [csrftoken, setcsrftoken] = useState('');
-
-    const getCookie = (name) => {
-        const value = `; ${document.cookie}`;
-        const parts = value.split(`; ${name}=`);
-        if (parts.length === 2) return parts.pop().split(';').shift();
-    }
 
     useEffect(() => {
 

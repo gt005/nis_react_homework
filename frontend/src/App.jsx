@@ -7,6 +7,7 @@ import ProfuctsPage from "./ProductsPage";
 import MainPage from "./MainPage";
 import UserSignUp from "./UserSignUp";
 import UserLogin from "./UserLogin";
+import {getCookie} from './components/getCookie';
 
 import {
     BrowserRouter,
@@ -14,24 +15,16 @@ import {
     Routes
 } from "react-router-dom";
 
-const API_URL = "http://localhost:8000";
 
 function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     useEffect(() => {
-        fetch(API_URL + '/api/auth/login-status')
-            .then((response) => {
-                if (response.ok) {
-                    setIsLoggedIn(true);
-                } else {
-                    setIsLoggedIn(false);
-                }
-            })
-            .catch(() => {
-                setIsLoggedIn(false);
-            });
+        setIsLoggedIn(
+        Boolean(getCookie("auth_token"))
+    );
     }, []);
+
 
     return (
         <BrowserRouter>

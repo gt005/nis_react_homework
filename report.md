@@ -72,3 +72,8 @@ python3 manage.py seed main --number=132
 /api/auth/logout
 ```
 Написал функцию CSRFToken для получения csrf токена с сервера для страниц, использующих post запросы.
+
+Для установки cookie использую
+```shell
+npm install react-cookie
+```

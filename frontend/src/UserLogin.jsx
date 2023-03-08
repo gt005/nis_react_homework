@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 import CSRFToken from "./components/getCsrfToken";
-import {login} from "./addons_auth/login";
 import { Navigate } from "react-router-dom";
+import { useCookies } from 'react-cookie';
+import { useNavigate } from "react-router-dom"
 
 export default function UserLogin(params) {
     if (params.isAuth) {
@@ -22,12 +23,32 @@ export default function UserLogin(params) {
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
+    const [cookies, setCookie] = useCookies(['auth_token']);
+    const navigate = useNavigate()
+
     const onSubmit = e => {
         e.preventDefault();
 
-        console.log(getCookie("csrftoken"));
+        const API_URL = "http://localhost:8000/api/djoser/token/login/";
 
-        login(username, password, getCookie("csrftoken"));
+        const request = new XMLHttpRequest();
+        const params = "username=" + username+ "&password=" + password + "&csrfmiddlewaretoken=" + getCookie("csrftoken");
+
+        request.responseType =	"json";
+        request.open("POST", API_URL, true);
+        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+        request.addEventListener("readystatechange", () => {
+            if (request.readyState === 4 && request.status === 200) {
+                let obj = request.response;
+                setCookie('auth_token', obj.auth_token, {path: '/'});
+                console.log(document.cookie);
+
+                window.location.reload();
+            }
+        });
+
+        request.send(params);
     };
 
     return (

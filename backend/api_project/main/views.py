@@ -13,7 +13,9 @@ from .models import Product
 from .serializers import *
 
 
-class ProductList(LoginRequiredMixin, APIView):
+class ProductList(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
     def get(self, request):
         products = Product.objects.all()
         page = request.GET.get('page', 1)
@@ -97,10 +99,15 @@ class LoginView(APIView):
         password = data['password']
 
         user = auth.authenticate(username=username, password=password)
+        print(request.COOKIES['sessionid'])
 
         if user is not None:
             auth.login(request, user)
-            return Response({'success': 'User authenticated'})
+
+            return Response({
+                'success': 'User authenticated',
+                'sessionid': request.COOKIES['sessionid'],
+            })
         else:
             return Response({'error': 'Error Authenticating'}, status=status.HTTP_401_UNAUTHORIZED)
 
