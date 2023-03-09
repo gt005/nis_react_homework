@@ -1,6 +1,6 @@
 import {useCookies} from 'react-cookie';
 import { Navigate } from "react-router-dom";
-import React, {useState} from "react";
+import React from "react";
 import {getCookie} from './components/getCookie'
 
 export default function UserLogout(params) {
@@ -22,7 +22,6 @@ export default function UserLogout(params) {
     request.addEventListener("readystatechange", () => {
         console.log(request)
         if (request.readyState === 4) {
-            let obj = request.response;
             removeCookie('auth_token');
         }
     });

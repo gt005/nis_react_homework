@@ -71,7 +71,7 @@ export default function ProductsPage({page}) {
                 <div className="col-12">
                     <h1 className="product-page__header-label">Каталог</h1>
                     <div
-                        className="product-page__error-label">{errorString}</div>
+                        className="error-label">{errorString}</div>
                 </div>
             </div>
             <div className="row">
@@ -91,7 +91,7 @@ export default function ProductsPage({page}) {
                             </div>
                         ))}
                     </div>
-                    {(nextPage != -1) && (
+                    {(nextPage !== -1) && (
                         <button className="btn btn-outline-secondary mb-5"
                                 onClick={() => {
                                     showLoader();
@@ -100,7 +100,7 @@ export default function ProductsPage({page}) {
                                     }, 2000)
                                 }}>Загрузить
                             ещё</button>)}
-                    {(nextPage == -1) && (
+                    {(nextPage === -1) && (
                         <span>Выведены все записи</span>)}
                 </div>
             </div>

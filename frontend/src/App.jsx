@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import ProfuctsPage from "./ProductsPage";
 import MainPage from "./MainPage";
 import UserLogin from "./UserLogin";
+import UserSignUp from "./UserSignUp";
 import UserLogout from "./UserLogout";
 import {getCookie} from './components/getCookie';
 
@@ -47,6 +48,11 @@ function App() {
                         path="/login"
                         exact
                         element={<UserLogin isAuth={isLoggedIn} />}/>
+
+                    <Route
+                        path="/sign-up"
+                        exact
+                        element={<UserSignUp isAuth={isLoggedIn} />}/>
 
                     <Route
                         path="/logout"

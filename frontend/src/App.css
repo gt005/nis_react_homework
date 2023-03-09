@@ -37,6 +37,10 @@
     }
 }
 
+ul {
+    list-style: none;
+}
+
 /* Header */
 header {
     padding: 16px;
@@ -62,7 +66,7 @@ header a {
     padding-top: 50px;
 }
 
-.product-page__error-label {
+.error-label {
     color: red;
 }
 
